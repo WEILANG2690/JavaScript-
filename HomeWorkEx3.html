@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <style>
+        *{
+            margin:auto;
+        }
+        div{
+            text-align:center;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var imgs = document.querySelectorAll("img");
+
+            for (var i = 0; i < imgs.length; i++) {
+                imgs[i].addEventListener("mouseover", mouseOver);
+                imgs[i].addEventListener("mouseout", mouseOut);
+                //imgs[i].addEventListener("click", setS);
+                imgs[i].onclick = setS;
+            }
+        });
+        var flag = false;
+        var star = 0;
+            function mouseOver() {
+                if (!flag) {
+                    for (var i = 0; i < this.id.substr(4);i++)
+                        document.getElementById("Star" + (i + 1)).src = "../imgs/idstar.gif";
+                        star = this.id.substr(4);
+                        document.getElementById("Stxt").innerHTML = " 可獲得" + this.id.substr(4) + "顆星";
+                    
+
+                }
+            }
+
+            function mouseOut() {
+                if(!flag){
+                    for (var j = 0; j <this.id.substr(4); j++) 
+                        document.getElementById("Star" + (j + 1)).src = "../imgs/star.gif";
+
+                }
+            }
+            function setS() {
+                flag = true;
+
+                document.getElementById("Stxt").innerHTML = "<h1>獲得" + star + "顆星<h1>";
+                document.getElementById("Stxt").style.backgroundColor = "yellow";
+                
+                
+                
+            }
+       
+    </script>
+    <style>
+    </style>
+</head>
+<body>
+    <div>
+        <img id="Star1" src="../imgs/star.gif" alt=""  />
+        <img id="Star2" src="../imgs/star.gif" alt=""  />
+        <img id="Star3" src="../imgs/star.gif" alt=""  />
+        <img id="Star4" src="../imgs/star.gif" alt=""  />
+        <img id="Star5" src="../imgs/star.gif" alt="" />
+        <h1 id="Stxt" ></h1>
+    </div>
+</body>
+</html>
